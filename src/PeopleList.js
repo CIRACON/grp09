@@ -31,7 +31,7 @@ export function PeopleList() {
       if (!matches) throw "Bad URL. Not a people URL."
       return matches[1]
     }
-    
+
     console.log("All the persons are ", persons)
       return (
         <>
