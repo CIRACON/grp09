@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export function PeopleList() {
   const [persons, setPersons] = useState([]);
@@ -45,8 +46,8 @@ export function PeopleList() {
 
           <section id="people">
             {persons.length > 0 && 
-            persons.map(person => <div>
-                {person.name}
+            persons.map(person => <div key={person.id}>
+                <Link to="/person">{person.name} {person.id} </Link>
             </div>)
             }
           </section>
