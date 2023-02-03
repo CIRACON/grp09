@@ -48,7 +48,6 @@ export function PeopleList() {
             {persons.length > 0 && 
             persons.map(person => <div key={person.id}>
                 <Link to={`/person/${person.id}`}>{person.name} {person.id} </Link>
-  
             </div>)
             }
           </section>
