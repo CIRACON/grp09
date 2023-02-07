@@ -1,6 +1,7 @@
 //use useParams 
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 export function PersonPage() {
     const params = useParams()
@@ -68,7 +69,7 @@ export function PersonPage() {
             </section>
             <section id="planets">
                 <h3>Homeworld</h3>
-                <p><span id="homeworld">{foundPerson.planetId}</span></p>
+                <Link to={`/planet/${foundPerson.planetId}`}>{foundPerson.planetId} </Link>
             </section>
             <section id="films">
                 <h3>Films appeared in</h3>
