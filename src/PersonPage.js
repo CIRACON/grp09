@@ -33,10 +33,12 @@ export function PersonPage() {
         try {
             const fetchedPerson = await fetch(url)
             .then(res => res.json())
-            // dummyPerson = fetchedPerson
-            setFoundPerson(fetchedPerson)
-            console.log(`homeworld url is ` + fetchedPerson.homeworld)
+            dummyPerson = fetchedPerson
             setPlanetID(getPlanetIdFromUrl(fetchedPerson.homeworld)) 
+            dummyPerson.planetId = planetId
+            setFoundPerson(dummyPerson)
+            console.log(foundPerson)
+            console.log(`homeworld url is ` + fetchedPerson.homeworld)
         }
         catch (ex) {
           console.error(`Error reading person ${params.id} data.`, ex.message);
@@ -72,7 +74,7 @@ export function PersonPage() {
             </section>
             <section id="planets">
                 <h3>Homeworld</h3>
-                <p><span id="homeworld">{planetId}</span></p>
+                {/* <p><span id="homeworld">{foundPerson.planetId}</span></p> */}
             </section>
             <section id="films">
                 <h3>Films appeared in</h3>
