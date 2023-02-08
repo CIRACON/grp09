@@ -1,13 +1,14 @@
 // import logo from './logo.svg';
 import './App.css';
-import { NavBar } from './NavBar';
-import { EmployeeTable } from './EmployeeTable';
+import { Route, Routes } from 'react-router-dom';
+import { EmployeeDirectory } from './EmployeeDirectory';
 
 function App() {
   return (
     <>
-    <NavBar />
-    <EmployeeTable />
+    <Routes>
+      <Route path="/" element={<EmployeeDirectory />} />
+    </Routes>
     </>
   );
 }
