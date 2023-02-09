@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 
 function App() {
-  const [token, setToken] = useState();
+  // const [token, setToken] = useState();
 
   // if(!token) {
   //   return <LoginPage setToken={setToken} />
@@ -17,7 +17,8 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/" element={<EmployeeDirectory />} />
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/people" element={<EmployeeDirectory />} />
     </Routes>
     </>
   );
