@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 // findAllEmployees
-app.get("/", (req, res) => {
+app.get("/people", (req, res) => {
     data.call('findallemployees', {}, (result) => {
         if (result.employees !== undefined) {
             res.send(result.employees);
@@ -16,6 +16,6 @@ app.get("/", (req, res) => {
     });
 });
 
-    const port = 3000;
+    const port = 5000;
     console.log("server starting on port: " + port);
     app.listen(port);

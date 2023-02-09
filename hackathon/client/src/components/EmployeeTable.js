@@ -24,63 +24,27 @@ export function EmployeeTable() {
         item.name.toLowerCase().includes(search.toLowerCase())
       ), };
     return (
-        <>
-        <label htmlFor="search">
-        Search by Task:
-        <input id="search" type="text" onChange={handleSearch} />
-      </label>
-
-        <Table data={list}>
-            {(tableList => (
-                <>
-                <Header>
-                <HeaderRow>
-                  <HeaderCell>Name</HeaderCell>
-                  <HeaderCell>Phone Number</HeaderCell>
-                  <HeaderCell>Role</HeaderCell>
-                  <HeaderCell>Location</HeaderCell>
-                  <HeaderCell>Salary</HeaderCell>
-                </HeaderRow>
-              </Header>
-
-              <Body>
-              {tableList.map((item) => (
-              <Row key={item.id} item={item}>
-                <Cell>{item.name}</Cell>
-                <Cell>{item.phoneNumber}</Cell>
-                <Cell>{item.jobRole}</Cell>
-                <Cell>{item.location}</Cell>
-                <Cell>{item.salary}</Cell>
-              </Row>
-            ))}
-              </Body>
-              </>
-            ))}
-
-        </Table>
-        </>
-        // <table>
-        //     <tr>
-        //         <th>Name</th>
-        //         <th>Phone Number</th>
-        //         <th>Job Role</th>
-        //         <th>Work Location</th>
-        //         <th>Salary</th>
-        //     </tr>
-        //     {
-        //         data.map((val, key) => {
-        //             return (
-        //             <tr key ={key}>
-        //                 <td>{val.name}</td>
-        //                 <td>{val.phoneNumber}</td>
-        //                 <td>{val.jobRole}</td>
-        //                 <td>{val.location}</td>
-        //                 <td>{val.salary}</td>
-        //             </tr>
-        //             )
-        //         })
-        //     }
-        // </table>
-        
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Job Role</th>
+                <th>Work Location</th>
+                <th>Salary</th>
+            </tr>
+            {
+                data.map((val, key) => {
+                    return (
+                    <tr key ={key}>
+                        <td>{val.name}</td>
+                        <td>{val.phoneNumber}</td>
+                        <td>{val.jobRole}</td>
+                        <td>{val.location}</td>
+                        <td>{val.salary}</td>
+                    </tr>
+                    )
+                })
+            }
+        </table>
     )
 }
