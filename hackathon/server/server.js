@@ -3,8 +3,19 @@ const data = require("./data");
 const app = express();
 
 app.use(express.json());
-app.get('/', (req, res) => res.send('The server is running:)'));
 
-const port = 3000;
-console.log("server starting on port: " + port );
-app.listen(port);
+// findAllEmployees
+app.get("/", (req, res) => {
+    data.call('findallemployees', {}, (result) => {
+        if (result.employees !== undefined) {
+            res.send(result.employees);
+        } else {
+            res.statusCode = 404;
+            res.end();
+        }
+    });
+});
+
+    const port = 3000;
+    console.log("server starting on port: " + port);
+    app.listen(port);
