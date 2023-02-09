@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 // findAllEmployees
-app.get("/", (req, res) => {
+app.get("/people", (req, res) => {
     data.call('findallemployees', {}, (result) => {
         if (result.employees !== undefined) {
             res.send(result.employees);
