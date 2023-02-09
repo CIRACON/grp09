@@ -16,6 +16,6 @@ app.get("/", (req, res) => {
     });
 });
 
-    const port = 3000;
+    const port = 5000;
     console.log("server starting on port: " + port);
     app.listen(port);
