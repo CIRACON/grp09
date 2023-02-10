@@ -26,6 +26,8 @@ export function EmployeeTable(props) {
     const list = { nodes: data.filter((item) =>
         item.name.toLowerCase().includes(search.toLowerCase())
       ), };
+    const accessLevel = props.access;
+    console.log(`Access level is`, accessLevel);
     return (
         <>
         <label htmlFor="search">
@@ -43,8 +45,121 @@ export function EmployeeTable(props) {
             <HeaderCell>Location</HeaderCell>
             <HeaderCell>Salary</HeaderCell>
           </HeaderRow>
-        </Header>
-        {props.userAccess === `hr` && 
+        </Header> 
+        <Body>
+        {tableList.map((item) => (
+              <Row key={item.id} item={item}>
+                <Cell>{item.name}</Cell>
+                <Cell>{item.phoneNumber}</Cell>
+                <Cell>{item.jobRole}</Cell>
+                <Cell>{item.location}</Cell>
+                <Cell>{item.salary}</Cell>
+              </Row>
+            ))}
+        </Body>
+
+            </>
+        )
+            
+        
+        
+}
+        </Table>
+        </>
+
+    )    
+}
+
+export function EmployeeTableManager(props) {
+    console.log("employees are", props.employees)
+
+    const data = props.employees;
+    const [search, setSearch] = useState('');
+
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  };
+
+    const list = { nodes: data.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      ), };
+    const accessLevel = props.access;
+    console.log(`Access level is`, accessLevel);
+    return (
+        <>
+        <label htmlFor="search">
+        Search by Task:
+        <input id="search" type="text" onChange={handleSearch} />
+      </label>
+
+        <Table data={list}>{(tableList) =>(
+            <>
+                <Header>
+          <HeaderRow>
+            <HeaderCell>Name</HeaderCell>
+            <HeaderCell>Phone Number</HeaderCell>
+            <HeaderCell>Role</HeaderCell>
+            <HeaderCell>Location</HeaderCell>
+            <HeaderCell>Salary</HeaderCell>
+          </HeaderRow>
+        </Header> 
+        <Body>
+        {tableList.map((item) => (
+              <Row key={item.id} item={item}>
+                <Cell>{item.name}</Cell>
+                <Cell>{item.phoneNumber}</Cell>
+                <Cell>{item.jobRole}</Cell>
+                <Cell>{item.location}</Cell>
+                <Cell>{item.name === `Fake Jeannie` || item.name === `Horse` && item.salary}</Cell>
+              </Row>
+            ))}
+        </Body>
+
+            </>
+        )
+            
+        
+        
+}
+        </Table>
+        </>
+
+    )
+}
+
+export function EmployeeTableEmployee(props) {
+    console.log("employees are", props.employees)
+
+    const data = props.employees;
+    const [search, setSearch] = useState('');
+
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  };
+
+    const list = { nodes: data.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      ), };
+    const accessLevel = props.access;
+    console.log(`Access level is`, accessLevel);
+    return (
+        <>
+        <label htmlFor="search">
+        Search by Task:
+        <input id="search" type="text" onChange={handleSearch} />
+      </label>
+
+        <Table data={list}>{(tableList) =>(
+            <>
+                <Header>
+          <HeaderRow>
+            <HeaderCell>Name</HeaderCell>
+            <HeaderCell>Phone Number</HeaderCell>
+            <HeaderCell>Role</HeaderCell>
+            <HeaderCell>Location</HeaderCell>
+            <HeaderCell>Salary</HeaderCell>
+          </HeaderRow>
+        </Header> 
         <Body>
         {tableList.map((item) => (
               <Row key={item.id} item={item}>
@@ -56,7 +171,7 @@ export function EmployeeTable(props) {
               </Row>
             ))}
         </Body>
-}
+
             </>
         )
             
@@ -65,27 +180,6 @@ export function EmployeeTable(props) {
 }
         </Table>
         </>
-        // <table>
-        //     <tr>
-        //         <th>Name</th>
-        //         <th>Phone Number</th>
-        //         <th>Job Role</th>
-        //         <th>Work Location</th>
-        //         <th>Salary</th>
-        //     </tr>
-        //     {
-        //         data.map((val, key) => {
-        //             return (
-        //             <tr key ={key}>
-        //                 <td>{val.name}</td>
-        //                 <td>{val.phoneNumber}</td>
-        //                 <td>{val.jobRole}</td>
-        //                 <td>{val.location}</td>
-        //                 <td>{val.salary}</td>
-        //             </tr>
-        //             )
-        //         })
-        //     }
-        // </table>
+
     )
 }

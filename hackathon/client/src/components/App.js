@@ -19,6 +19,7 @@ function App() {
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/people" element={<EmployeeDirectory />} />
+      <Route path="/people/:id" element={<EmployeeDirectory />} />
     </Routes>
     </>
   );
