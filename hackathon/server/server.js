@@ -1,8 +1,10 @@
 const express = require('express');
 const data = require("./data");
 const app = express();
+const cors = require('cors'); 
 
 app.use(express.json());
+app.use(cors());
 
 // findAllEmployees
 app.get("/people", (req, res) => {
