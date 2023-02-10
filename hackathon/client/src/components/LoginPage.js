@@ -35,13 +35,13 @@ export function LoginPage() {
             <button type="submit" onSubmit={() => toDashboard(true)}>Submit</button>
           </div>
           <div>
-            <Link to={`/people`}>HR View</Link>
+            <Link to={`/people`} state={{ access: "hr" }}>HR View</Link>
           </div>
           <div>
-            <Link to={`/people`}>Manager View</Link>
+            <Link to={`/people`} state={{ access: "manager" }}>Manager View</Link>
           </div>
           <div>
-            <Link to={`/people`}>Employee View</Link>
+            <Link to={`/people`} state={{ access: "employee" }}>Employee View</Link>
           </div>
         </form>
     </div>

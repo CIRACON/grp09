@@ -2,6 +2,7 @@ import { NavBar } from './NavBar';
 import { EmployeeTable } from './EmployeeTable';
 import { getEmployees } from './rest';
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom'
 
 
 export function EmployeeDirectory() {
@@ -14,10 +15,12 @@ export function EmployeeDirectory() {
             }
         )
     }, []);
+    const location = useLocation();
+    const [access] = location.state;
     return(
         <>
             <NavBar />
-            <EmployeeTable employees={employees} />
+            <EmployeeTable employees={employees} userAccess ={access} />
         </>
     )
 }

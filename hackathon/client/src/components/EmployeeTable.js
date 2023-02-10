@@ -44,7 +44,7 @@ export function EmployeeTable(props) {
             <HeaderCell>Salary</HeaderCell>
           </HeaderRow>
         </Header>
-
+        {props.userAccess === `hr` && 
         <Body>
         {tableList.map((item) => (
               <Row key={item.id} item={item}>
@@ -52,10 +52,11 @@ export function EmployeeTable(props) {
                 <Cell>{item.phoneNumber}</Cell>
                 <Cell>{item.jobRole}</Cell>
                 <Cell>{item.location}</Cell>
-                <Cell>{item.salary}</Cell>
+                <Cell>{item.name === `Jeannie` && item.salary}</Cell>
               </Row>
             ))}
         </Body>
+}
             </>
         )
             
