@@ -16,11 +16,13 @@ function App() {
   // }
   return (
     <>
+    <div className='container'>
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/people" element={<EmployeeDirectory />} />
       <Route path="/people/:id" element={<EmployeeDirectory />} />
     </Routes>
+    </div>
     </>
   );
 }

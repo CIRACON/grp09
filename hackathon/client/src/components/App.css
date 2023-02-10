@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
 .App {
   text-align: center;
   width: 100%;
@@ -5,6 +7,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* .container {
+  width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+} */
+
+input[type=text] {
+  border: 2px solid red;
+  border-radius: 4px;
+  font-family: Lato;
+}
+
+input[type=password] {
+  border: 2px solid red;
+  border-radius: 4px;
+  font-family: Lato;
+}
+
+h1 {
+  font-family: Lato;
+}
+
+p {
+  font-family: Lato;
+  color: #f50002;
 }
 
 table {

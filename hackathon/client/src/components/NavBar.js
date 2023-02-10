@@ -4,13 +4,8 @@ export function NavBar() {
     return(
         <>
             <Link to="/">
-            <span>
-                Home
-            </span>
+            <h1>Home</h1>
             </Link>
-            <span>
-                Login
-            </span>
         </>
     )
 }
