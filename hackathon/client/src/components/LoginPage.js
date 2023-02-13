@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import travLogo from './pics/Travelers-logo.png'
 
 
 
@@ -35,8 +36,10 @@ export function LoginPage() {
      
 
     return(
+        <>
+    <img src={travLogo} height={130} width={192}/>
     <div className="login-wrapper">
-      <h1>Please Log In</h1>
+      <h3>Please Log In</h3>
         <form onSubmit={handleSubmit}>
           <label>
             <p>Username</p>
@@ -47,9 +50,9 @@ export function LoginPage() {
             <input type="password" value={password} onChange={handlePassword}/>
           </label>
           <div>
-            <button type="submit">Submit</button>
+            <button type="submit" style={{marginTop: '15px'}}>Submit</button>
           </div>
-          <div>
+          {/* <div>
             <Link to={`/people`} state={{ access: "hr" }}>HR View</Link>
           </div>
           <div>
@@ -57,8 +60,9 @@ export function LoginPage() {
           </div>
           <div>
             <Link to={`/people/employee`} state={{ access: "employee" }}>Employee View</Link>
-          </div>
+          </div> */}
         </form>
     </div>
+    </>
       )
 }

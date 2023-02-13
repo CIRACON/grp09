@@ -2,7 +2,8 @@ import { NavBar } from './NavBar';
 import { EmployeeTable, EmployeeTableManager, EmployeeTableEmployee } from './EmployeeTable';
 import { getEmployees } from './rest';
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHref, useParams } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export function EmployeeDirectory() {
     const routeParams = useParams();
@@ -15,6 +16,10 @@ export function EmployeeDirectory() {
             }
         )
     }, []);
+    const navigate = useNavigate();
+    function handleClick(){
+        navigate(`/`)
+    } 
 
     console.log(`Access level is`, routeParams);
     if (routeParams.id === `employee`) {
@@ -22,6 +27,7 @@ export function EmployeeDirectory() {
             <>
             <NavBar />
             <EmployeeTableEmployee employees={employees}  />
+            <button style={{marginTop: `20px`}} onClick={handleClick}> Go Back </button>
         </>
         ) 
     } 
@@ -30,6 +36,7 @@ export function EmployeeDirectory() {
             <>
             <NavBar />
             <EmployeeTableManager employees={employees}  />
+            <button style={{marginTop: `20px`}} onClick={handleClick}> Go Back </button>
         </>
         )
         
@@ -38,6 +45,7 @@ export function EmployeeDirectory() {
         <>
             <NavBar />
             <EmployeeTable employees={employees}  />
+            <button style={{marginTop: `20px`}} onClick={handleClick}> Go Back </button>
         </>
     )
 }

@@ -6,13 +6,14 @@ import { Table,
     Body,
     Cell, } from '@table-library/react-table-library/table';
 import { useState } from 'react';
+// import './App.css'
 // const data = [
 //     { id: 1, name: "Marv", phoneNumber: 1234567890, jobRole: "Employee", location: "Hartford", salary: 100000},
 //     { id: 2, name: "Jeannie", phoneNumber: 1234567891, jobRole: "Manager", location: "St. Paul", salary: 100000},
 //     { id: 3, name: "Rap", phoneNumber: 1234567892, jobRole: "HR", location: "St. Paul", salary: 200000},
 //     { id: 4, name: "Ola", phoneNumber: 1234567893, jobRole: "HR", location: "Hartford", salary: 200000}
 //   ]
-
+const TableStyle = {paddingTop: 10}
 export function EmployeeTable(props) {
     console.log("employees are", props.employees)
 
@@ -30,12 +31,12 @@ export function EmployeeTable(props) {
     console.log(`Access level is`, accessLevel);
     return (
         <>
-        <label htmlFor="search">
-        Search by Task:
-        <input id="search" type="text" onChange={handleSearch} />
+        <label htmlFor="search" style={{paddingBottom: '20px', fontSize: '14'}}>
+        Search by Name:
+        <input id="search" type="text" onChange={handleSearch} style={{marginBottom: '20px', marginLeft: '20px'}} />
       </label>
 
-        <Table data={list}>{(tableList) =>(
+        <Table data={list} style={TableStyle}>{(tableList) =>(
             <>
                 <Header>
           <HeaderRow>
@@ -87,9 +88,9 @@ export function EmployeeTableManager(props) {
     console.log(`Access level is`, accessLevel);
     return (
         <>
-        <label htmlFor="search">
-        Search by Task:
-        <input id="search" type="text" onChange={handleSearch} />
+        <label htmlFor="search" style={{paddingBottom: '20px', fontSize: '14'}}>
+        Search by Name:
+        <input id="search" type="text" onChange={handleSearch} style={{marginBottom: '20px', marginLeft: '20px'}} />
       </label>
 
         <Table data={list}>{(tableList) =>(
@@ -110,7 +111,7 @@ export function EmployeeTableManager(props) {
                 <Cell>{item.phoneNumber}</Cell>
                 <Cell>{item.jobRole}</Cell>
                 <Cell>{item.location}</Cell>
-                <Cell>{item.name === `Fake Jeannie` || item.name === `Horse` && item.salary}</Cell>
+                <Cell>{(item.name === `Fake Jeannie` || item.name === `Horse` || item.name === `Jeannie`) && item.salary}</Cell>
               </Row>
             ))}
         </Body>
@@ -144,9 +145,9 @@ export function EmployeeTableEmployee(props) {
     console.log(`Access level is`, accessLevel);
     return (
         <>
-        <label htmlFor="search">
-        Search by Task:
-        <input id="search" type="text" onChange={handleSearch} />
+        <label htmlFor="search" style={{paddingBottom: '20px', fontSize: '14'}}>
+        Search by Name:
+        <input id="search" type="text" onChange={handleSearch} style={{marginBottom: '20px', marginLeft: '20px'}} />
       </label>
 
         <Table data={list}>{(tableList) =>(
@@ -167,7 +168,7 @@ export function EmployeeTableEmployee(props) {
                 <Cell>{item.phoneNumber}</Cell>
                 <Cell>{item.jobRole}</Cell>
                 <Cell>{item.location}</Cell>
-                <Cell>{item.name === `Jeannie` && item.salary}</Cell>
+                <Cell>{item.name === `Horse` && item.salary}</Cell>
               </Row>
             ))}
         </Body>
